@@ -1,17 +1,20 @@
 package com.javaacademy;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 /**
  * Бутылка
  */
+@RequiredArgsConstructor
+@ToString(exclude = {"cityProducer"})
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Bottle {
-    private final double volume;
-    private double nestedVolume;
-    private final String cityProducer;
-
-    public Bottle(double volume, String cityProducer) {
-        this.volume = volume;
-        this.cityProducer = cityProducer;
-    }
+    @Getter
+    final double volume;
+    @Setter
+    double nestedVolume;
+    final String cityProducer;
 
     public void addLiquid(double liquidVolume) {
         if (liquidVolume > nestedVolume) {
@@ -22,21 +25,5 @@ public class Bottle {
             throw  new RuntimeException("Нет места в бутылки, все выливается!");
         }
         setNestedVolume(newNestedVolume);
-    }
-
-    public void setNestedVolume(double nestedVolume) {
-        this.nestedVolume = nestedVolume;
-    }
-
-    public double getVolume() {
-        return volume;
-    }
-
-    @Override
-    public String toString() {
-        return "Bottle{" +
-                "volume=" + volume +
-                ", nestedVolume=" + nestedVolume +
-                '}';
     }
 }
