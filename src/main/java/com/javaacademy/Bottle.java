@@ -6,14 +6,13 @@ import lombok.experimental.FieldDefaults;
 /**
  * Бутылка
  */
-@AllArgsConstructor
 @RequiredArgsConstructor
-@Getter
-@Setter
-@ToString(exclude = {"volume", "nestedVolume"})
+@ToString(exclude = {"cityProducer"})
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Bottle {
+    @Getter
     final double volume;
+    @Setter
     double nestedVolume;
     final String cityProducer;
 
