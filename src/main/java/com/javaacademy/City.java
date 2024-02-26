@@ -3,6 +3,7 @@ package com.javaacademy;
 /**
  * Город
  */
+
 public class City {
     public final String name;
     public int peopleCount;
