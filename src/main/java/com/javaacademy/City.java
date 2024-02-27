@@ -7,14 +7,13 @@ import lombok.experimental.FieldDefaults;
  * Город
  */
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Getter
+@Setter
 @ToString(exclude = {"peopleCount"})
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class City {
     @NonNull
     final String name;
-    @Setter
     int peopleCount;
 
     public Garbage[] createGarbage() {
