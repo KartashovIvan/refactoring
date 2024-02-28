@@ -1,6 +1,8 @@
 package com.javaacademy;
 
+import lombok.AccessLevel;
 import lombok.SneakyThrows;
+import lombok.experimental.FieldDefaults;
 import lombok.experimental.UtilityClass;
 import java.io.BufferedWriter;
 
@@ -8,8 +10,9 @@ import java.io.BufferedWriter;
  * Фабрика по переработке мусора
  */
 @UtilityClass
+@FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)
 public class UtilizationFactory {
-    public final double BOTTLE_SIZE = 500;
+    double BOTTLE_SIZE = 500;
 
     @SneakyThrows
     private Bottle refactorGlassGarbage(Garbage garbage) {
